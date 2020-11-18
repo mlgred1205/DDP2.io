@@ -1,0 +1,25 @@
+---
+title: "Week 3 DDP Course Project"
+author: "Dr. G"
+date: "11/17/2020"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Puromyocin
+```{r plot, echo=FALSE, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(plotly))
+plot_ly(data = Puromycin, x = ~conc, y = ~rate, 
+        color = ~as.factor(state),
+        text = ~paste("Conc: ", conc, '<br>Rate:', rate),
+        mode = "markers") %>%
+  layout(title = "Cellular Response to Puromyocin", 
+         xaxis = list(title = "Concentration of Substrate (ppm)"),
+         yaxis = list(title = "Rate of Reaction (counts/min/min)")
+         )
+```
+
